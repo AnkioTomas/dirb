@@ -57,8 +57,8 @@ jobs:
       
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
-      - name: install apt-cyg
-        run: bash install apt-cyg /bin 
+      #- name: install apt-cyg
+       # run: bash install apt-cyg /bin 
       - name: install curl
         run: bash apt-cyg install curl 
       
