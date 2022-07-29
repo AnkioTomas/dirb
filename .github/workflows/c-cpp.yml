@@ -64,7 +64,7 @@ jobs:
       - name: add packages
         run: c:\setup.exe  -q -P curl
       - name: add packages
-        run: c:\setup.exe  -q -P libcurl4
+        run: c:\setup.exe  -q -P libcurl-devel
       - name: add packages
         run: c:\setup.exe  -q -P make   
      # - name: install packages
