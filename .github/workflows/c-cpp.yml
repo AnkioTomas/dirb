@@ -58,9 +58,7 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
       - name: add packages
-        run: c:\setup.exe  -q -P lynx,autoconf,curl,make
-      - name: test
-        run: bash -c curl --version   
+        run: c:\setup.exe  -q -P lynx,autoconf,curl,make 
       - name: configure
         run: bash -c ./configure
       - name: make
