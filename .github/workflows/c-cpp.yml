@@ -58,10 +58,12 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
       - name: add packages
-        run: c:\setup.exe  -q -P lynx,autoconf,curl,libcurl-devel,libcurl-doc,make
-      - run: bash -c "curl-config --libs"    
+        run: c:\setup.exe  -q -P lynx
+      - run: bash -c "lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg"
+      - run: bash -c "install apt-cyg /bin"
+      - run: bash -c "apt-cyg install curl"
       - name: configure
-        run: bash -c ./configure
+        run: bash -c "./configure"
       - name: make
         run: bash make
       - name: make check
