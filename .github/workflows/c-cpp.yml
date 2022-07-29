@@ -58,7 +58,7 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master    
       - name: install deps
-        run: pacman -S curl   
+        run: bash pacman -S curl   
       - name: configure
         run: bash ./configure
       - name: make
