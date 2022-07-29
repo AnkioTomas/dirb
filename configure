@@ -2295,8 +2295,8 @@ else
  check="7.10.1"
  check_hex="070A01"
 
- { $as_echo "$as_me:${as_lineno-$LINENO}: checking for libcurl >= $check" >&5
-$as_echo_n "checking for libcurl >= $check... " >&6; }
+# { $as_echo "$as_me:${as_lineno-$LINENO}: checking for libcurl >= $check" >&5
+#$as_echo_n "checking for libcurl >= $check... " >&6; }
 
  if eval curl-config --version 2>/dev/null >/dev/null; then
    ver=`curl-config --version | sed -e "s/libcurl //g"`
