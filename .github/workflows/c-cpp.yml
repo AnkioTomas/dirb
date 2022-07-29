@@ -19,13 +19,13 @@ jobs:
         run: make
       - name: make check
         run: make check
-      - name: make distcheck
-        run: make distcheck
+     # - name: make distcheck
+     #   run: make distcheck
       - name: Upload GitHub Actions artifact of vcpkg build
         uses: actions/upload-artifact@v2
         with:
           name: dirb-mac
-          path: ${{ github.workspace }}/build/
+          path: ./dirb
 
   build-linux:
     runs-on: ubuntu-latest
@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dirb-linux
-          path: ${{ github.workspace }}/build/
+          path: ./dirb
 
   build-windows:
     runs-on: windows-latest
@@ -67,4 +67,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dirb-windows.exe
-          path: ${{ github.workspace }}/build/
+          path: ./dirb.exe
