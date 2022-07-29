@@ -57,8 +57,8 @@ jobs:
       
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
-     
-      - run: choco install curl --version=7.21.7
+     # C:\cygwin\bin\
+      - run: copy ./win32/*.*  C:\cygwin\bin\
      #- name: add packages
     #    run: c:\setup.exe  -q -P lynx,wget
      # - run: bash -c "lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg"
