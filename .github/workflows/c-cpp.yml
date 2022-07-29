@@ -58,9 +58,7 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master    
       - name: change source apt-cyg
-        run: bash lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg 
-      - name: install apt-cyg
-        run: bash install apt-cyg /bin 
+        run: lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg install apt-cyg /bin
       - name: install curl
         run: bash apt-cyg install curl 
         
