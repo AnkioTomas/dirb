@@ -57,19 +57,12 @@ jobs:
       
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
-     # C:\cygwin\bin\
-     # - run:  copy .\win32\* C:\cygwin\bin\  /Y
-     #- name: add packages
-    #    run: c:\setup.exe  -q -P lynx,wget
-     # - run: bash -c "lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg"
-     # - run: bash -c "install apt-cyg /bin"
-      - run: bash -c "pwd"
       - name: configure 
         run: bash -c "env LIBRARY_PATH=\"/cygdrive/d/a/dirb/dirb/win32\" ./configure "
       - name: make
-        run: bash make
+        run: bash -c make
       - name: make check
-        run: bash make check
+        run: bash -c "make check"
       - name: Upload GitHub Actions artifact of vcpkg build
         uses: actions/upload-artifact@v2
         with:
