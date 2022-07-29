@@ -1,0 +1,70 @@
+name: 🎉 Release Binary
+on:
+  create:
+    tags:
+      - v*
+  workflow_dispatch:
+
+jobs:
+  build-mac:
+    runs-on: macos-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: configure
+        run: ./configure
+      - name: make
+        run: make
+      - name: make check
+        run: make check
+      - name: make distcheck
+        run: make distcheck
+      - name: Upload GitHub Actions artifact of vcpkg build
+        uses: actions/upload-artifact@v2
+        with:
+          name: dirb-mac
+          path: ${{ github.workspace }}/build/
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: configure
+        run: ./configure
+      - name: make
+        run: make
+      - name: make check
+        run: make check
+      - name: make distcheck
+        run: make distcheck
+      - name: Upload GitHub Actions artifact of vcpkg build
+        uses: actions/upload-artifact@v2
+        with:
+          name: dirb-linux
+          path: ${{ github.workspace }}/build/
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: configure
+        run: ./configure
+      - name: make
+        run: make
+      - name: make check
+        run: make check
+      - name: make distcheck
+        run: make distcheck
+      - name: Upload GitHub Actions artifact of vcpkg build
+        uses: actions/upload-artifact@v2
+        with:
+          name: dirb-windows.exe
+          path: ${{ github.workspace }}/build/
