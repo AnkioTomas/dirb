@@ -60,9 +60,9 @@ jobs:
       - name: add packages
         run: c:\setup.exe  -q -P lynx,autoconf,curl,make
       - name: test
-        run: bash curl --version   
+        run: bash -c curl --version   
       - name: configure
-        run: bash ./configure
+        run: bash -c ./configure
       - name: make
         run: bash make
       - name: make check
