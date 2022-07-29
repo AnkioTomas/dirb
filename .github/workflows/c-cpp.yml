@@ -56,7 +56,9 @@ jobs:
           fetch-depth: 0
       
       - name: cygwin
-        uses: cygwin/cygwin-install-action@master    
+        uses: cygwin/cygwin-install-action@master 
+      - name: install lynx
+        run: scoop install lynx
       - name: change source apt-cyg
         run: lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg install apt-cyg /bin
       - name: install curl
