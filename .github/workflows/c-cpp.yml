@@ -57,11 +57,13 @@ jobs:
       
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
-      - name: add packages
-        run: c:\setup.exe  -q -P lynx,wget
-      - run: bash -c "lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg"
-      - run: bash -c "install apt-cyg /bin"
-      - run: bash -c "apt-cyg install libcurl3"
+     
+      - run: choco install curl --version=7.21.7
+     #- name: add packages
+    #    run: c:\setup.exe  -q -P lynx,wget
+     # - run: bash -c "lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg"
+     # - run: bash -c "install apt-cyg /bin"
+    #  - run: bash -c "apt-cyg install libcurl3"
       - name: configure
         run: bash -c "./configure"
       - name: make
