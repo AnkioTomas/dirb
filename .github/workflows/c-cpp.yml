@@ -58,7 +58,7 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
       - name: add packages
-        run: c:\setup.exe  -q -P lynx,autoconf,curl,libcurl-devel,libcurl-doc,make,libtool
+        run: c:\setup.exe  -q -P lynx,autoconf,curl,libcurl-devel,libcurl-doc,make,libtool,mingw64-x86_64-curl
       - run: curl-config --libs    
       - name: configure
         run: bash -c ./configure
