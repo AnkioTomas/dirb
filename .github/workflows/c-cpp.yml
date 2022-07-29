@@ -58,7 +58,7 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master    
       - name: install deps
-        run: choco install curl 
+        run: bash choco install curl 
       - name: configure
         run: bash ./configure
       - name: make
