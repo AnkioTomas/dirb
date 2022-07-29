@@ -57,9 +57,15 @@ jobs:
       
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
+      - name: install lynx
+        run: /cygdrive/c/tools/cygwin/cygwinsetup.exe -q -P lynx   
+      - name: install apt-cyg
+        run: lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
+      - name: install apt-cyg
+        run: install apt-cyg /bin 
       - name: install curl
         run: bash apt-cyg install curl 
-        
+      
       - name: configure
         run: bash ./configure
       - name: make
