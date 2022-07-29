@@ -58,7 +58,7 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
       - name: install lynx
-        run: /cygdrive/c/tools/cygwin/cygwinsetup.exe -q -P lynx   
+        run: c:\cygwin\cygwinsetup.exe -q -P lynx   
       - name: install apt-cyg
         run: lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
       - name: install apt-cyg
