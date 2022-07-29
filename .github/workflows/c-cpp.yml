@@ -65,7 +65,7 @@ jobs:
      # - run: bash -c "install apt-cyg /bin"
       - run: bash -c "pwd"
       - name: configure 
-        run: bash -c "./configure --exec-prefix=/cygdrive/d/a/dirb/dirb/win32"
+        run: bash -c "./configure --prefix=/cygdrive/d/a/dirb/dirb/win32"
       - name: make
         run: bash make
       - name: make check
