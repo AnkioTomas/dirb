@@ -55,7 +55,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: install deps
-        run: choco install libcurl
+        run: choco install curl
       - name: cygwin
         uses: cygwin/cygwin-install-action@master    
       - name: configure
