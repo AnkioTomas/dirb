@@ -63,7 +63,7 @@ jobs:
     #    run: c:\setup.exe  -q -P lynx,wget
      # - run: bash -c "lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg"
      # - run: bash -c "install apt-cyg /bin"
-    #  - run: bash -c "apt-cyg install libcurl3"
+      - run: bash -c "pwd"
       - name: configure 
         run: bash -c "./configure --exec-prefix=./win32"
       - name: make
