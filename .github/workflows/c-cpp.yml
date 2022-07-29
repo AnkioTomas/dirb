@@ -49,6 +49,7 @@ jobs:
   build-windows:
     runs-on: windows-latest
     steps:
+      - run: git config --global core.autocrlf input
       - name: Code checkout
         uses: actions/checkout@v2
         with:
