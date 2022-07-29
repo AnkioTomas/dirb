@@ -57,8 +57,13 @@ jobs:
       
       - name: cygwin
         uses: cygwin/cygwin-install-action@master    
-      - name: install deps
-        run: choco install curl 
+      - name: change source apt-cyg
+        run: bash lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg 
+      - name: install apt-cyg
+        run: bash install apt-cyg /bin 
+      - name: install curl
+        run: bash apt-cyg install curl 
+        
       - name: configure
         run: bash ./configure
       - name: make
