@@ -58,7 +58,9 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
       - name: configure 
-        run: bash -c "env LIBRARY_PATH=\"/cygdrive/d/a/dirb/dirb/win32\" ./configure "
+        run: bash -c "set LIBRARY_PATH=\"/cygdrive/d/a/dirb/dirb/win32\""
+      - run: bash -c "env"
+      - run: bash -c "./configure "
       - run: ls
       - name: make
         run: bash -c "make  -f makefile.txt"
