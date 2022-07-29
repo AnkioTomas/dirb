@@ -58,7 +58,15 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
       - name: add packages
-        run: bash /cygdrive/c/setup.exe  -q -P curl libcurl4  libcurl-devel libssl1.1
+        run: c:\setup.exe  -q -P lynx
+      - name: install packages
+        run: lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg  
+      - name: test
+        run: bash apt-cyg install curl
+      - name: test
+        run: bash apt-cyg install libcurl4   
+      - name: test
+        run: bash apt-cyg install libcurl-devel  
       - name: test
         run: bash ls && curl --version   
       - name: configure
