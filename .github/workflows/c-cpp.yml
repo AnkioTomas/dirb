@@ -54,6 +54,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: install deps
+        run: choco install libcurl
       - name: cygwin
         uses: cygwin/cygwin-install-action@master    
       - name: configure
