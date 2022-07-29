@@ -58,14 +58,14 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
      # C:\cygwin\bin\
-      - run:  copy .\win32\* C:\cygwin\bin\  /Y
+     # - run:  copy .\win32\* C:\cygwin\bin\  /Y
      #- name: add packages
     #    run: c:\setup.exe  -q -P lynx,wget
      # - run: bash -c "lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg"
      # - run: bash -c "install apt-cyg /bin"
     #  - run: bash -c "apt-cyg install libcurl3"
-      - name: configure
-        run: bash ./configure
+      - name: configure 
+        run: bash -c "./configure --exec-prefix=./win32"
       - name: make
         run: bash make
       - name: make check
