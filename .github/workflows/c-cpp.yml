@@ -53,13 +53,14 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          
+      - name: cygwin
+        uses: cygwin/cygwin-install-action@master    
       - name: configure
-        run: ./configure
+        run: bash ./configure
       - name: make
-        run: make
+        run: bash make
       - name: make check
-        run: make check
+        run: bash make check
       - name: Upload GitHub Actions artifact of vcpkg build
         uses: actions/upload-artifact@v2
         with:
