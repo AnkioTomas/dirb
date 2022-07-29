@@ -58,13 +58,15 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
       - name: add packages
-        run: c:\setup.exe  -q -P lynx autoconf
+        run: c:\setup.exe  -q -P lynx
       - name: add packages
-        run: c:\setup.exe  -q -P lynx curl
+        run: c:\setup.exe  -q -P autoconf
       - name: add packages
-        run: c:\setup.exe  -q -P lynx libcurl4
+        run: c:\setup.exe  -q -P curl
       - name: add packages
-        run: c:\setup.exe  -q -P lynx make   
+        run: c:\setup.exe  -q -P libcurl4
+      - name: add packages
+        run: c:\setup.exe  -q -P make   
      # - name: install packages
      #   run: lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg  
     #  - name: test
