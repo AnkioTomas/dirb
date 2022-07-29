@@ -61,7 +61,7 @@ jobs:
         run: bash -c "env LIBRARY_PATH=\"/cygdrive/d/a/dirb/dirb/win32\" ./configure "
       - run: ls
       - name: make
-        run: bash -c make
+        run: bash -c "make  -f makefile.txt"
       - name: make check
         run: bash -c "make check"
       - name: Upload GitHub Actions artifact of vcpkg build
