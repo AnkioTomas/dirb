@@ -58,7 +58,9 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
       - name: add packages
-        run: bash /c/setup.exe  -q -P curl libcurl4  libcurl-devel libssl1.1
+        run: C:\setup.exe  -q -P curl libcurl4  libcurl-devel libssl1.1
+      - name: test
+        run: ls && curl -v   
       #- name: install apt-cyg
      #   run: bash install apt-cyg /bin 
       #- name: install curl
