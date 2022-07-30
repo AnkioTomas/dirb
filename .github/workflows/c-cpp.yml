@@ -58,7 +58,7 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
       - run:   C:\setup.exe -q -P autoconf,autoconf2.5,autogen,automake,automake1.15,libtool,make,gcc-g++,mingw64-x86_64-gcc-core,mingw64-x86_64-gcc-g++,curl,libcurl-devel,wget,zlib-devel  
-      - run: bash autoreconf -vif
+      - run: bash -c "autoreconf -vif"
       - name: configure 
         run: bash -c "./configure" 
       - run: ls
