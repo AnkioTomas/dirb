@@ -82,6 +82,10 @@ jobs:
       - run: copy   C:\cygwin\bin\cygldap-2.dll .
       - run: copy   C:\cygwin\bin\cyglber-2.dll .
       - run: copy   C:\cygwin\bin\cygnghttp2-14.dll .
+      - run: copy   C:\cygwin\bin\cygpsl-5.dll .
+      - run: copy   C:\cygwin\bin\cygssh2-1.dll .
+      - run: copy   C:\cygwin\bin\cygz.dll .
+      - run: copy   C:\cygwin\bin\cygssl-1.1.dll .
       - name: Upload GitHub Actions artifact of vcpkg build
         uses: actions/upload-artifact@v3
         with:
@@ -98,4 +102,8 @@ jobs:
             ./cygldap-2.dll
             ./cyglber-2.dll
             ./cygnghttp2-14.dll
+            ./cygpsl-5.dll
+            ./cygssh2-1.dll
+            ./cygz.dll
+            ./cygssl-1.1.dll
             ./wordlists/**/*
