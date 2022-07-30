@@ -57,7 +57,10 @@ jobs:
       
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
-      - run:   C:\setup.exe -q -P autoconf,autogen,automake,libtool,make,gcc-g++,mingw64-x86_64-gcc-core,mingw64-x86_64-gcc-g++,curl,libcurl-devel,wget,zlib-devel  
+      - run:  choco install wget -y
+      - run: wget -P C:\ https://www.cygwin.com/setup-x86_64.exe
+      - run: ls C:\
+      - run:  C:\setup-x86_64.exe -q -P autoconf,autogen,automake,libtool,make,gcc-g++,mingw64-x86_64-gcc-core,mingw64-x86_64-gcc-g++,curl,libcurl-devel,wget,zlib-devel  
       - run: bash -c "ls /usr/bin"
       - run: bash -c "autoreconf -vif"
       # /usr/bin/autoconf-2.71 --force
