@@ -23,7 +23,9 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dirb-mac
-          path: ./dirb
+          path: |
+            ./dirb
+            ./wordlist/*
 
   build-linux:
     runs-on: ubuntu-latest
@@ -44,7 +46,9 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dirb-linux
-          path: ./dirb
+          path: |
+            ./dirb
+            ./wordlist/*
 
   build-windows:
     runs-on: windows-latest
@@ -58,15 +62,9 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
         with:
-          packages: autoconf,autogen,automake,libtool,make,gcc-g++,mingw64-x86_64-gcc-core,mingw64-x86_64-gcc-g++,curl,libcurl-devel,wget,zlib-devel  
-  
-    #  - run:  choco install wget -y
-     # - run: wget -P C:\ https://www.cygwin.com/setup-x86_64.exe
-     # - run: ls C:\
-     # - run:  C:\setup -s https://mirrors.tuna.tsinghua.edu.cn/cygwin/ -v -q -P autoconf,autogen,automake,libtool,make,gcc-g++,mingw64-x86_64-gcc-core,mingw64-x86_64-gcc-g++,curl,libcurl-devel,wget,zlib-devel  
+          packages: autoconf,autogen,automake,libtool,make,gcc-g++,mingw64-x86_64-gcc-core,mingw64-x86_64-gcc-g++,curl,libcurl-devel,wget,zlib-devel   
       - run: ls C:\cygwin\bin
       - run: bash -c "autoreconf -vif"
-      # /usr/bin/autoconf-2.71 --force
       - name: configure 
         run: bash -c "./configure" 
       - run: ls
@@ -75,7 +73,11 @@ jobs:
       - name: make check
         run: bash -c "make check"
       - name: Upload GitHub Actions artifact of vcpkg build
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-          name: dirb-windows.exe
-          path: ./dirb.exe
+          name: dirb_windows
+          path: | 
+            ./dirb.exe
+            C:\cygwin\bin\cygcurl-4.dll
+            C:\cygwin\bin\cygwin1.dll
+            ./wordlist/*
