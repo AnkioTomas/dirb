@@ -66,7 +66,7 @@ jobs:
       - run: ls C:\cygwin\bin
       - run: bash -c "autoreconf -vif"
       - name: configure 
-        run: bash -c "./configure" 
+        run: bash -c "./configure --prefix=/cygdrive/d/a/dirb/dirb/dist" 
       - run: ls
       - name: make
         run: bash -c "make"
@@ -107,3 +107,4 @@ jobs:
             ./cygz.dll
             ./cygssl-1.1.dll
             ./wordlists/**/*
+            ./dist/**/*
