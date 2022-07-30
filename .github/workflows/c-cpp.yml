@@ -22,10 +22,10 @@ jobs:
       - name: Upload GitHub Actions artifact of vcpkg build
         uses: actions/upload-artifact@v2
         with:
-          name: dirb-mac
+          name: dirb_mac
           path: |
             ./dirb
-            ./wordlist/*
+            ./wordlist/**/*
 
   build-linux:
     runs-on: ubuntu-latest
@@ -45,10 +45,10 @@ jobs:
       - name: Upload GitHub Actions artifact of vcpkg build
         uses: actions/upload-artifact@v2
         with:
-          name: dirb-linux
+          name: dirb_linux
           path: |
             ./dirb
-            ./wordlist/*
+            ./wordlist/**/*
 
   build-windows:
     runs-on: windows-latest
@@ -74,6 +74,11 @@ jobs:
         run: bash -c "make check"
       - run: copy   C:\cygwin\bin\cygwin1.dll .
       - run: copy   C:\cygwin\bin\cygcurl-4.dll .
+      - run: copy   C:\cygwin\bin\cygcrypto-1.1.dll .
+      - run: copy   C:\cygwin\bin\cygbrotlidec-1.dll .
+      - run: copy   C:\cygwin\bin\cyggssapi_krb5-2.dll .
+      - run: copy   C:\cygwin\bin\cyggsasl-7.dll .
+      #- run: copy   C:\cygwin\bin\cygcurl-4.dll .
       - name: Upload GitHub Actions artifact of vcpkg build
         uses: actions/upload-artifact@v3
         with:
@@ -82,4 +87,8 @@ jobs:
             ./dirb.exe
             ./cygcurl-4.dll
             ./cygwin1.dll
-            ./wordlist/*
+            ./cygcrypto-1.1.dll
+            ./cygbrotlidec-1.dll
+            ./cyggssapi_krb5-2.dll
+            ./cyggsasl-7.dll
+            ./wordlist/**/*
