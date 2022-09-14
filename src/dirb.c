@@ -61,8 +61,8 @@ int main(int argc, char **argv) {
   if(argc==2 || strncmp(argv[2], "-", 1)==0) {
 
    
-    getcwd(options.mfile, STRING_SIZE-strlen("/wordlists/common.txt")-2);
-    strcpy(options.mfile,  "/wordlists/common.txt");
+    //getcwd(options.mfile, STRING_SIZE-strlen("/wordlists/common.txt")-2);
+    strncpy(options.mfile,  "./wordlists/common.txt",STRING_SIZE-1);
 
     //strncpy(options.mfile, "/wordlists/common.txt", STRING_SIZE-1);
     optind+=1;
