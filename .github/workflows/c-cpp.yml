@@ -26,7 +26,6 @@ jobs:
           path: |
             ./dirb
             ./wordlists/**/*
-
   build-linux:
     runs-on: ubuntu-latest
     steps:
@@ -49,7 +48,6 @@ jobs:
           path: |
             ./dirb
             ./wordlists/**/*
-
   build-windows:
     runs-on: windows-latest
     steps:
