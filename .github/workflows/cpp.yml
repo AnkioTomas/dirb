@@ -1,0 +1,110 @@
+name: 🎉 Release Binary
+on:
+  create:
+    tags:
+      - v*
+  workflow_dispatch:
+
+jobs:
+  build-mac:
+    runs-on: macos-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: configure
+        run: ./configure
+      - name: make
+        run: make
+      - name: make check
+        run: make check
+      - name: Upload GitHub Actions artifact of vcpkg build
+        uses: actions/upload-artifact@v2
+        with:
+          name: dirb_mac
+          path: |
+            ./dirb
+            ./wordlists/**/*
+
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: install deps
+        run: sudo apt-get install libcurl4-gnutls-dev librtmp-dev
+      - name: configure
+        run: ./configure
+      - name: make
+        run: make
+      - name: make check
+        run: make check
+      - name: Upload GitHub Actions artifact of vcpkg build
+        uses: actions/upload-artifact@v2
+        with:
+          name: dirb_linux
+          path: |
+            ./dirb
+            ./wordlists/**/*
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - run: git config --global core.autocrlf input
+      - name: Code checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - name: cygwin
+        uses: cygwin/cygwin-install-action@master 
+        with:
+          packages: autoconf,autogen,automake,libtool,make,gcc-g++,mingw64-x86_64-gcc-core,mingw64-x86_64-gcc-g++,curl,libcurl-devel,wget,zlib-devel   
+      - run: ls C:\cygwin\bin
+      - run: bash -c "autoreconf -vif"
+      - name: configure 
+        run: bash -c "./configure --prefix=/cygdrive/d/a/dirb/dirb/dist" 
+      - run: ls
+      - name: make
+        run: bash -c "make"
+      - name: make check
+        run: bash -c "make check"
+      - run: copy   C:\cygwin\bin\cygwin1.dll .
+      - run: copy   C:\cygwin\bin\cygcurl-4.dll .
+      - run: copy   C:\cygwin\bin\cygcrypto-1.1.dll .
+      - run: copy   C:\cygwin\bin\cygbrotlidec-1.dll .
+      - run: copy   C:\cygwin\bin\cyggssapi_krb5-2.dll .
+      - run: copy   C:\cygwin\bin\cyggsasl-7.dll .
+      - run: copy   C:\cygwin\bin\cygidn2-0.dll .
+      - run: copy   C:\cygwin\bin\cygldap-2.dll .
+      - run: copy   C:\cygwin\bin\cyglber-2.dll .
+      - run: copy   C:\cygwin\bin\cygnghttp2-14.dll .
+      - run: copy   C:\cygwin\bin\cygpsl-5.dll .
+      - run: copy   C:\cygwin\bin\cygssh2-1.dll .
+      - run: copy   C:\cygwin\bin\cygz.dll .
+      - run: copy   C:\cygwin\bin\cygssl-1.1.dll .
+      - name: Upload GitHub Actions artifact of vcpkg build
+        uses: actions/upload-artifact@v3
+        with:
+          name: dirb_windows
+          path: | 
+            ./dirb.exe
+            ./cygcurl-4.dll
+            ./cygwin1.dll
+            ./cygcrypto-1.1.dll
+            ./cygbrotlidec-1.dll
+            ./cyggssapi_krb5-2.dll
+            ./cyggsasl-7.dll
+            ./cygidn2-0.dll
+            ./cygldap-2.dll
+            ./cyglber-2.dll
+            ./cygnghttp2-14.dll
+            ./cygpsl-5.dll
+            ./cygssh2-1.dll
+            ./cygz.dll
+            ./cygssl-1.1.dll
+            ./wordlists/**/*
+            ./dist/**/*
