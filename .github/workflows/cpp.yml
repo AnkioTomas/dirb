@@ -72,8 +72,8 @@ jobs:
         run: bash -c "make"
       - name: make check
         run: bash -c "make check"
-      - run: copy   ../win32/cygwin1.dll .
-      - run: copy   ../win32/cygcurl-4.dll .
+      - run: copy   ./win32/cygwin1.dll .
+      - run: copy   ./win32/cygcurl-4.dll .
       - name: Upload GitHub Actions artifact of vcpkg build
         uses: actions/upload-artifact@v3
         with:
