@@ -26,9 +26,9 @@
 #define MAX_FAILS   	3
 #define TIMEOUT     	50
 #define BIGWORDLIST   	100000
-#define AGENT_STRING  	"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+#define AGENT_STRING  	"Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET4.0C; .NET4.0E; rv:11.0) like Gecko"
 #define MAX_ALERT   	100
-#define STRING_SIZE   	256
+#define STRING_SIZE   	1024
 #define DUMP_TIMEOUT  	100
 
 #define DUMP_DIR    	".cache/dirb/resume"
