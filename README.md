@@ -53,6 +53,8 @@ make
 
 ## Usage
 
+> The default dictionary is in the current directory: [`wordlists/common.txt`](https://github.com/dreamncn/dirb/blob/master/wordlists/common.txt)
+
 DIRB takes 2 main parameters, the base URL for testing and a list of wordlist files used for the attack. 
 
 Example:
