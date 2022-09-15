@@ -62,7 +62,7 @@ jobs:
       - name: cygwin
         uses: cygwin/cygwin-install-action@master 
         with:
-          packages: autoconf,autogen,automake,libtool,make,gcc-g++,mingw64-x86_64-gcc-core,mingw64-x86_64-gcc-g++,curl,libcurl-devel,wget,zlib-devel   
+          packages: autoconf,autogen,automake,libtool,make,gcc-g++,mingw64-x86_64-gcc-core,mingw64-x86_64-gcc-g++,curl,libcurl-devel,wget,zlib-devel,zip   
       - run: ls C:\cygwin\bin
       - run: bash -c "autoreconf -vif"
       - name: configure 
@@ -84,3 +84,18 @@ jobs:
             ./cygwin1.dll
             ./wordlists/**/*
             ./dist/**/*
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3   
+      - run: zip -r  dirb_linux.zip ./dirb_linux
+      - run: zip -r  dirb_mac.zip ./dirb_mac
+      - run: zip -r  dirb_windows.zip ./dirb_windows
+      - uses: softprops/action-gh-release@v1
+        with: # 将下述可执行文件 release 上去
+          files: |
+            dirb_linux.zip
+            dirb_windows.zip
+            dirb_mac.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    
