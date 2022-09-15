@@ -72,20 +72,8 @@ jobs:
         run: bash -c "make"
       - name: make check
         run: bash -c "make check"
-      - run: copy   C:\cygwin\bin\cygwin1.dll .
-      - run: copy   C:\cygwin\bin\cygcurl-4.dll .
-      - run: copy   C:\cygwin\bin\cygcrypto-1.1.dll .
-      - run: copy   C:\cygwin\bin\cygbrotlidec-1.dll .
-      - run: copy   C:\cygwin\bin\cyggssapi_krb5-2.dll .
-      - run: copy   C:\cygwin\bin\cyggsasl-7.dll .
-      - run: copy   C:\cygwin\bin\cygidn2-0.dll .
-      - run: copy   C:\cygwin\bin\cygldap-2.dll .
-      - run: copy   C:\cygwin\bin\cyglber-2.dll .
-      - run: copy   C:\cygwin\bin\cygnghttp2-14.dll .
-      - run: copy   C:\cygwin\bin\cygpsl-5.dll .
-      - run: copy   C:\cygwin\bin\cygssh2-1.dll .
-      - run: copy   C:\cygwin\bin\cygz.dll .
-      - run: copy   C:\cygwin\bin\cygssl-1.1.dll .
+      - run: copy   ../win32/cygwin1.dll .
+      - run: copy   ../win32/cygcurl-4.dll .
       - name: Upload GitHub Actions artifact of vcpkg build
         uses: actions/upload-artifact@v3
         with:
@@ -94,17 +82,5 @@ jobs:
             ./dirb.exe
             ./cygcurl-4.dll
             ./cygwin1.dll
-            ./cygcrypto-1.1.dll
-            ./cygbrotlidec-1.dll
-            ./cyggssapi_krb5-2.dll
-            ./cyggsasl-7.dll
-            ./cygidn2-0.dll
-            ./cygldap-2.dll
-            ./cyglber-2.dll
-            ./cygnghttp2-14.dll
-            ./cygpsl-5.dll
-            ./cygssh2-1.dll
-            ./cygz.dll
-            ./cygssl-1.1.dll
             ./wordlists/**/*
             ./dist/**/*
