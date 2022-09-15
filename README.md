@@ -12,7 +12,7 @@
 
 ## Introduction
 
-> Dirb a tool created by Ramon Pinuaga, this repo it's a [Sourceforge](https://sourceforge.net/projects/dirb/files/) fork and fix some error.(
+> Dirb a tool created by Ramon Pinuaga, this repo it's a [Sourceforge](https://sourceforge.net/projects/dirb/files/) fork and fix some error.
 
 DIRB is a Web Content Scanner. It looks for existing (and/or hidden) Web Objects. It basically works by launching a dictionary based attack against a web server and analizing the response.
 
