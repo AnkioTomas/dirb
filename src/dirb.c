@@ -272,7 +272,7 @@ void ayuda(void) {
   printf(" -P <proxy_username:proxy_password> : Proxy Authentication.\n");
   printf(" -r : Don't search recursively.\n");
   printf(" -R : Interactive recursion. (Asks for each directory)\n");
-  // printf(" -s : Verify the validity of the peer's SSL certificate.\n");
+   printf(" -s : Verify the validity of the peer's SSL certificate.\n");
   printf(" -S : Silent Mode. Don't show tested words. (For dumb terminals)\n");
   printf(" -t : Don't force an ending '/' on URLs.\n");
   printf(" -u <username:password> : HTTP Authentication.\n");

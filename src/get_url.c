@@ -84,12 +84,8 @@ retry:
       curl_easy_setopt(curl, CURLOPT_COOKIE, options.cookie);
       }
 
-    if(options.verify_ssl==0) {
       curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0);
       curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0);
-      //curl_easy_setopt(curl, CURLOPT_SSLVERSION, 3);
-      }
-
 
     estructura.estado=curl_easy_perform(curl);
 
@@ -180,7 +176,7 @@ size_t get_header(void *ptr, size_t size, size_t nmemb, void *stream) {
     }
 
 
-  // Tamaño
+  // Tamaï¿½o
 
   estructura.head_size+=len;
 
@@ -219,7 +215,7 @@ size_t get_body(void *ptr, size_t size, size_t nmemb, void *stream) {
 
   if(listable==-1) {
 
-    if(strstr(ptr, "Parent Directory")!=0 || strstr(ptr, "Up To ")!=0 || strstr(ptr, "Atrás A ")!=0 || strstr(ptr, "Al directorio pri")!=0 || strstr(ptr, "Directory Listing For")!=0) {
+    if(strstr(ptr, "Parent Directory")!=0 || strstr(ptr, "Up To ")!=0 || strstr(ptr, "Atrï¿½s A ")!=0 || strstr(ptr, "Al directorio pri")!=0 || strstr(ptr, "Directory Listing For")!=0) {
     if(options.debuging>3) printf("[+++] get_body() Directory is listable\n");
     listable=1;
       }
